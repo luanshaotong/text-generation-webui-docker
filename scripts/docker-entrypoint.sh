@@ -41,20 +41,20 @@ fi
 VARIANT=$(cat /variant.txt)
 echo "=== Running text-generation-webui variant: '$VARIANT' ===" 
 
-# Print version freshness
-cur_dir=$(pwd)
-src_dir="/src"
-cd $src_dir
-git fetch origin >/dev/null 2>&1
-if [ $? -ne 0 ]; then
-  # An error occurred
-  COMMITS_BEHIND="UNKNOWN"
-else
-  # The command executed successfully
-  COMMITS_BEHIND=$(git rev-list HEAD..origin --count)
-fi
-echo "=== (This version is $COMMITS_BEHIND commits behind origin) ===" 
-cd $cur_dir
+# # Print version freshness
+# cur_dir=$(pwd)
+# src_dir="/src"
+# cd $src_dir
+# git fetch origin >/dev/null 2>&1
+# if [ $? -ne 0 ]; then
+#   # An error occurred
+#   COMMITS_BEHIND="UNKNOWN"
+# else
+#   # The command executed successfully
+#   COMMITS_BEHIND=$(git rev-list HEAD..origin --count)
+# fi
+# echo "=== (This version is $COMMITS_BEHIND commits behind origin) ===" 
+# cd $cur_dir
 
 # Print build date
 BUILD_DATE=$(cat /build_date.txt)

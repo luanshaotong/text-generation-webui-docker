@@ -1,7 +1,7 @@
 version: "3"
 services:
   text-generation-webui-docker:
-    image: atinoda/text-generation-webui:default # Specify variant as the :tag
+    image: luanshaotong/text-generation-webui-cpu:dev # Specify variant as the :tag
     container_name: text-generation-webui
     environment:
       - EXTRA_LAUNCH_ARGS="--listen --verbose" # Custom launch args (e.g., --model MODEL_NAME)
@@ -25,10 +25,3 @@ services:
       options:
         max-file: "3"   # number of files or file count
         max-size: '10m'
-    deploy:
-        resources:
-          reservations:
-            devices:
-              - driver: nvidia
-                device_ids: ['0']
-                capabilities: [gpu]
